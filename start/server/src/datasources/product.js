@@ -24,8 +24,27 @@ class ProductAPI extends DataSource {
   async getProduct(id) {
     return await fetch(`http://api.nodesense.ai/api/products/${id}`)
                  .then (response => response.json() );
-}
+  }
 
+
+  async deleteProduct(id) {
+    return await fetch(`http://api.nodesense.ai/api/products/${id}`, {
+                        method: 'DELETE'
+                        })
+                        .then (response => response.json() );
+  }
+
+
+  async  updateProduct(id, price) {
+    return await fetch(`http://api.nodesense.ai/api/products/${id}`, {
+                        method: 'PATCH',
+                        headers: {
+                          'content-type': 'application/json'
+                        },
+                        body: JSON.stringify( {price} )
+                        })
+                        .then (response => response.json() );
+  }
 
 }
 

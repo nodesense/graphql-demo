@@ -27,6 +27,22 @@ class BrandAPI extends DataSource {
   async getBrand(id) {
      return await brandsData.find (brand => brand.id == id)
   }
+
+  async deleteBrand(id) {
+    const index = brandsData.findIndex(brand => brand.id == id);
+    brandsData.splice(index, 1);
+    return await {} // return empty object
+  }
+
+  async updateBrand(id, name) {
+     const brand =  await brandsData.find (brand => brand.id == id)
+     if (brand) {
+       brand.name = name;
+     }
+
+     return await brand;
+  }
+
 }
 
 

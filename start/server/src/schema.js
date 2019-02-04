@@ -32,6 +32,16 @@ const typeDefs = gql`
         getProduct(id: ID!): Product
         getBrand(id: ID!): Brand
     }
+
+
+
+  type Mutation {
+    deleteBrand(id: ID!): Brand
+    deleteProduct(id: Int): Product
+
+    updateBrand(id: ID!, name: String!): Brand
+    updateProduct(id: ID!, price: Int): Product
+  }
 `
 
 module.exports = typeDefs;

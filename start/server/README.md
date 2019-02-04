@@ -23,6 +23,13 @@ module.exports = typeDefs;
 
 
 
+query GetBrands {
+  brands {
+      id
+      name
+  }
+}
+
 
 query GetProducts {
   products {
@@ -72,3 +79,47 @@ query parameter
 }
 
 -------
+
+
+mutation DeleteBrand {
+  deleteBrand(id: 1) {
+    name
+  }
+}
+
+----
+
+mutation DeleteBrand($id: ID!) {
+  deleteBrand(id: $id) {
+    name
+  }
+}
+
+query param
+
+{
+  "id": 3
+}
+-- 
+
+mutation DeleteProduct {
+  deleteProduct(id: 21) {
+    name
+  }
+}
+---
+
+
+mutation UpdateBrand {
+  updateBrand(id: 2, name: "Google Alpha") {
+    name
+  }
+}
+
+--
+
+mutation UpdateProduct {
+  updateProduct(id: 22, price: 10000) {
+    name
+  }
+}
